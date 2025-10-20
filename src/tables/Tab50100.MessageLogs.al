@@ -12,7 +12,7 @@ table 50200 "Message Logs"
         field(2; "Message ID"; Code[20])
         {
             Caption = 'Message ID';
-            //OptimizeForTextSearch = true;
+            OptimizeForTextSearch = true;
         }
         field(3; Direction; Enum "Message Direction")
         {
@@ -33,7 +33,7 @@ table 50200 "Message Logs"
         field(7; "Search Text"; Text[250])
         {
             Caption = 'Search Text';
-           // OptimizeForTextSearch = true;
+            OptimizeForTextSearch = true;
         }
         field(8; Restored; Boolean)
         {
@@ -61,7 +61,7 @@ table 50200 "Message Logs"
         }
         key(status; "Message Type", Status)
         {
-            
+
         }
     }
 }

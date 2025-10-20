@@ -39,9 +39,24 @@ page 50203 "Fiscal Messages API"
         }
     }
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    var
+        Utilities: Codeunit BusinessCaseUtilities;
     begin
         Rec.Status := Rec.Status::Received;
         Rec.Direction := Rec.Direction::Inbound;
         Rec."Received Date Time" := CurrentDateTime();
+
+        if Rec."Message Type" = Rec."Message Type"::"Fiscal Data" then
+            Utilities.FnProcessFiscalData(Rec);
+
+        if Rec."Message Type" = Rec."Message Type"::"Transaction Data" then
+            Utilities.FnProcessTransactionData(Rec);
+    end;
+
+    trigger OnNewRecord(belowxRec: Boolean)
+    var
+        MessageLogger: Codeunit "Message Logger";
+    begin
+        MessageLogger.FnLogToMessageLogs(Rec);
     end;
 }

@@ -6,9 +6,9 @@ tableextension 50201 "Sales Line" extends "Sales Line"
 {
     fields
     {
-        field(50200; "Campain ID"; Code[100])
+        field(50200; "Campaign ID"; Code[100])
         {
-            Caption = 'Campain ID';
+            Caption = 'Campaign ID';
             DataClassification = ToBeClassified;
         }
     }
